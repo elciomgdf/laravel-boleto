@@ -65,6 +65,32 @@ class Bancoob extends AbstractBoleto implements BoletoContract
      * @var string
      */
     protected $convenio;
+
+    /**
+     * Define o número da parcela 3 caracteres
+     *
+     * @var string
+     */
+    protected $parcela;
+
+    /**
+     * @return string
+     */
+    public function getParcela()
+    {
+        return $this->parcela;
+    }
+
+    /**
+     * @param string $parcela
+     */
+    public function setParcela($parcela)
+    {
+        $this->parcela = $parcela;
+        return $this;
+
+    }
+
     /**
      * Define o número do convênio. Sempre use string pois a quantidade de caracteres é validada.
      *
@@ -124,7 +150,7 @@ class Bancoob extends AbstractBoleto implements BoletoContract
         $campoLivre .= Util::numberFormatGeral($this->getCarteira(), 2);
         $campoLivre .= Util::numberFormatGeral($this->getConvenio(), 7);
         $campoLivre .= Util::numberFormatGeral($nossoNumero, 8);
-        $campoLivre .= Util::numberFormatGeral(1, 3); //Numero da parcela - Não implementado
+        $campoLivre .= Util::numberFormatGeral($this->getParcela(), 3); //Numero da parcela - Não implementado
 
         return $this->campoLivre = $campoLivre;
     }
