@@ -283,7 +283,7 @@ class Bancoob extends AbstractRemessa implements RemessaContract
         $this->add(144, 151, date('dmY'));
         $this->add(152, 157, date('His'));
         $this->add(158, 163, Util::formatCnab('9', $this->getIdremessa(), 6));
-        $this->add(164, 166, '081');
+        $this->add(164, 166, '087');
         $this->add(167, 171, '00000');
         $this->add(172, 191, '');
         $this->add(192, 211, '');
